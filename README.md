@@ -26,3 +26,27 @@ bash ./scripts/build.sh
 ```bash
 node ./sample/ocr.js
 ```
+
+## Usage
+```js
+const { macosOcr } = require('macos-ocr.js');
+const path = require('path');
+
+(async function main() {
+  const result = await macosOcr({
+    imageUrl: path.join(__dirname, 'img.png'),
+  });
+  console.log(result);
+})();
+```
+```js
+// result
+[
+  {
+    word: 'Hello world',
+    rect: { left: 126, top: 54, width: 326, height: 60 },
+    confidence: 0.5
+  },
+  ...
+]
+```
