@@ -2,15 +2,39 @@
   "name": "macos-ocr.js",
   "version": "0.0.1",
   "description": "macOS ocr js api",
+  "keywords": [
+    "macOS",
+    "OCR"
+  ],
   "files": [
     "src/index.js",
     "src/macos-ocr/macos-ocr",
     "index.js"
   ],
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/snapre/macos-ocr.js.git"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-egg": "^12.1.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "git-contributor": "1",
+    "husky": "*",
+    "mocha": "*",
+    "nyc": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "lint": "eslint . --fix",
+    "contributor": "git-contributor"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "author": "snapre <xiangwu619@gmail.com>",
-  "license": "ISC"
+  "license": "MIT"
 }

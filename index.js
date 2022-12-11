@@ -1,4 +1,4 @@
-const { macosOcr } = require("./src/index");
+const { macosOcr } = require('./src/index');
 
 module.exports = {
   macosOcr,
