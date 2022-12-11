@@ -1,0 +1,16 @@
+{
+  "name": "macos-ocr.js",
+  "version": "0.0.1",
+  "description": "macOS ocr js api",
+  "files": [
+    "src/index.js",
+    "src/macos-ocr/macos-ocr",
+    "index.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "snapre <xiangwu619@gmail.com>",
+  "license": "ISC"
+}
