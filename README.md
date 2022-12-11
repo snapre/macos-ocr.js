@@ -1,4 +1,4 @@
-# macos-ocr.js
+# WIP macos-ocr.js
 
 [![NPM version][npm-image]][npm-url]
 [![CI][ci-image]][ci-url]
@@ -12,7 +12,7 @@
 [ci-url]: https://github.com/snapre/macos-ocr.js/actions/workflows/ci.yml
 [codecov-image]: https://img.shields.io/codecov/c/github/snapre/macos-ocr.js.svg?logo=codecov
 [codecov-url]: https://codecov.io/gh/snapre/macos-ocr.js
-[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg
+[node-image]: https://img.shields.io/badge/node.js-%3E=_12-green.svg
 [node-url]: http://nodejs.org/download/
 [download-image]: https://img.shields.io/npm/dm/macos-ocr.js.svg
 [download-url]: https://npmjs.org/package/macos-ocr.js
