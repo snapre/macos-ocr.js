@@ -38,7 +38,12 @@ const path = require('path');
   });
   console.log(result);
 })();
+
 ```
+<div align="center">
+  <img src="./sample/img.png" width="50%" />
+</div>
+
 ```js
 // result
 [
@@ -50,3 +55,7 @@ const path = require('path');
   ...
 ]
 ```
+
+<div align="center">
+  <img src="./sample/result.png" width="50%" />
+</div>
