@@ -19,6 +19,24 @@
 
 > Powered by https://developer.apple.com/documentation/vision/vnrecognizetextrequest
 
+## Quick start
+```bash
+$ npm i macos-ocr.js -g
+
+$ ocr -p path/to/image.png
+```
+```js
+// result
+[
+  {
+    word: 'Hello world',
+    rect: { left: 126, top: 54, width: 326, height: 60 },
+    confidence: 0.5
+  },
+  ...
+]
+```
+
 ## Build swift project
 ```bash
 bash ./scripts/build.sh
