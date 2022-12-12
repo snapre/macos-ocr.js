@@ -23,7 +23,7 @@
 ```bash
 $ npm i macos-ocr.js -g
 
-$ ocr -p path/to/image.png
+$ ocr path/to/image.png
 ```
 ```js
 // result

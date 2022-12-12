@@ -18,14 +18,12 @@ const options = program.opts();
 if (options.version) {
   console.info('%s  %s%s', EOL, version, EOL);
   process.exit(0);
-}
-
-if (options.path) {
+} else {
   ocr();
 }
 
 async function ocr() {
-  const imageUrl = path.resolve(process.cwd(), options.path);
+  const imageUrl = path.resolve(process.cwd(), process.argv[2]);
   const result = await macosOcr({ imageUrl });
   console.log(result);
 }
