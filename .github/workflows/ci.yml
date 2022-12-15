@@ -33,9 +33,7 @@ jobs:
         run: npm install --force
 
       - name: Continuous integration
-        run: |
-          bash ./scripts/build.sh
-          npm run test
+        run: npm run test
 
       - name: Code coverage
         uses: codecov/codecov-action@v3.0.0
