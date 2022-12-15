@@ -35,22 +35,23 @@ func main(args: [String]) -> Int32 {
 
     let request: VNRecognizeTextRequest = VNRecognizeTextRequest { (request, error) in
         let observations: [VNRecognizedTextObservation] = request.results as? [VNRecognizedTextObservation] ?? []
-        var results: [(String, (Int, Int, Int, Int), Float)] = []
-        var resultsStringList: [String] = []
+        var results: [Any] = []
         for observation: VNRecognizedTextObservation in observations {
           let candidate: VNRecognizedText = observation.topCandidates(1)[0]
-          let rect: (Int, Int, Int, Int) = (
-            Int(Float(observation.topLeft.x) * Float(imgRef.width)),
-            Int(Float(1 - observation.topLeft.y) * Float(imgRef.height)),
-            Int(Float(observation.topRight.x - observation.topLeft.x) * Float(imgRef.width)),
-            Int(Float(observation.topLeft.y - observation.bottomLeft.y) * Float(imgRef.height))
-          )
-          let result = "{ \"word\": \"\(candidate.string)\", \"rect\": { \"left\": \(rect.0), \"top\": \(rect.1), \"width\": \(rect.2), \"height\": \(rect.3) }, \"confidence\": \(candidate.confidence) }"
-          resultsStringList.append(result)
-          results.append((candidate.string, rect, candidate.confidence))
+          let value = [
+            "word": candidate.string,
+            "rect": [
+              "left": Int(Float(observation.topLeft.x) * Float(imgRef.width)),
+              "top": Int(Float(1 - observation.topLeft.y) * Float(imgRef.height)),
+              "width": Int(Float(observation.topRight.x - observation.topLeft.x) * Float(imgRef.width)),
+              "height": Int(Float(observation.topLeft.y - observation.bottomLeft.y) * Float(imgRef.height)),
+            ],
+            "confidence": candidate.confidence,
+          ]
+          results.append(value)
         }
-        let output = "[\(resultsStringList.joined(separator: ","))]"
-        print(output)
+        let data = try! JSONSerialization.data(withJSONObject: results)
+        print(String(data: data, encoding: String.Encoding.utf8) ?? "")
     }
     request.recognitionLevel = MODE
     request.usesLanguageCorrection = USE_LANG_CORRECTION
